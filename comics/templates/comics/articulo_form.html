@@ -1,0 +1,15 @@
+{% extends "comics/base.html" %}
+
+{% block contenido %}
+<h3>Crea tu artículo, {{ user.username }}:</h3>
+<p>Gracias por compartir tu artículo en nuestro blog.</p>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Guardar" />
+
+</form>
+
+<br>
+<a href="{% url 'listar_articulos' %}">Volver lista</a>
+{% endblock contenido %}

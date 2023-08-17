@@ -1,0 +1,37 @@
+{% extends "comics/base.html" %}
+
+{% block contenido %}
+<style>
+  h1, p {
+      color: white;
+  }
+</style>
+
+<p>
+  <strong>Titulo:</strong> {{object.titulo}}
+</p>
+<p>
+  <strong>Subtitulo:</strong> {{object.subtitulo}}
+</p>
+{% if object.imagen %}
+<img src="{{ object.imagen.url }}" alt="{{ object.titulo }}">
+{% endif %}
+
+<p>
+  <strong>Cuerpo:</strong> {{object.cuerpo}}
+</p>
+
+
+<p>
+    <strong>Autor:</strong> {{object.autor}}
+  </p>
+<p>
+  <strong>Fecha Publicacion:</strong> {{object.fecha_publicacion}}
+</p>
+
+
+
+<br>
+<a href="{% url 'listar_articulos' %}">Volver lista</a>
+
+{% endblock contenido %}

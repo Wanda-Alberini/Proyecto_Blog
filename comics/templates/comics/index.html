@@ -1,0 +1,31 @@
+{% extends "comics/base.html" %}
+
+{% block content %}
+    
+    {% if user.is_authenticated %}
+        <div style="margin-bottom: 20px;"></div>
+        <h2>Hola , {{user.username}} ! <h2>
+        {% if user.avatar.imagen %}
+            <img src="{{ user.avatar.imagen.url }}" style="width: 200px; height: 190px;" />
+        {% endif %}
+    {% else %}
+        <p>Usuario no autenticado</p>
+    {% endif %}
+   
+{% endblock %}
+
+{% block contenido %}
+
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    
+                    <h1 class="text-center";  style="color: white; white-space: nowrap;">COMICS</h1>
+                    
+                    <span class="subheading">Un Blog de Comics e Historietas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenido %}
