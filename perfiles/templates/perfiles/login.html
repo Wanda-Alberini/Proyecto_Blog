@@ -1,0 +1,16 @@
+{% extends "comics/base.html" %}
+
+{% block contenido %}
+<style>
+ 
+  label {
+    color: white;
+  }
+</style>
+
+<form method="post">
+ {% csrf_token %}
+ {{ form.as_p }}
+ <input type="submit" value="Iniciar Sesión" />
+</form>
+{% endblock contenido %}

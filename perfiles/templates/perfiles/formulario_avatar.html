@@ -1,0 +1,20 @@
+{% extends "comics/base.html" %}
+
+{% block contenido %}
+<style>
+  
+  h3, p {
+    color: white;
+  }
+</style>
+
+<h3>Subir tu Avatar, {{user.username}}</h3>
+<div style="margin-bottom: 20px;"></div>
+<form method="post" enctype="multipart/form-data">
+ {% csrf_token %}
+ {{ form.as_p }}
+ <div style="margin-bottom: 20px;"></div>
+ <input type="submit" value="Subir imagen"/>
+</form>
+
+{% endblock contenido %}
