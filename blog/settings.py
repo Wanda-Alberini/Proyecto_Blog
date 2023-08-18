@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "comics",
     "perfiles",
+    "ckeditor",
+    "ckeditor_uploader",
 ]
 
 MIDDLEWARE = [
@@ -103,6 +105,24 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'height': 300,
+        'width': '100%',
+        'toolbarCanCollapse': True,
+        'extraPlugins': 'codesnippet',  # Opcional, si quieres un plugin de resaltado de sintaxis
+        'codeSnippet_theme': 'xcode',   # Opcional, si usas el plugin de resaltado de sintaxis
+        'customConfig': '/static/ckeditor_config.js',  # Ruta al archivo de configuración personalizado
+    },
+}
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"  
+
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -120,6 +140,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR.parent, "static"),
